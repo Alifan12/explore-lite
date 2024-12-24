@@ -1,4 +1,4 @@
-import Home from "../models/HomeModel.js";
+import Home from "../models/CategoriesModel.js";
 
 export const getHome = async(req, res) => {
     try {

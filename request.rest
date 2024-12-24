@@ -1,1 +1,129 @@
-GET http://localhost:5001/home
+POST http://localhost:5001/users
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@gmail.com",
+    "password": "123456",
+    "confPassword": "123456",
+    "role": "user"
+}
+
+###
+# Get All Users
+GET http://localhost:5001/users
+
+###
+# Get User By ID
+GET http://localhost:5001/users/ed3b1ecd-188b-4e96-96d6-e6618e33d28d
+
+###
+PATCH http://localhost:5001/users/ed3b1ecd-188b-4e96-96d6-e6618e33d28d
+Content-Type: application/json
+
+{
+    "name": "John Doe Update",
+    "email": "john@gmail.com",
+    "password": "",
+    "confPassword": "",
+    "role": "user"
+}
+
+###
+# delete
+DELETE http://localhost:5001/users/ed3b1ecd-188b-4e96-96d6-e6618e33d28d
+
+###
+# Login
+POST http://localhost:5001/login
+Content-Type: application/json
+
+{
+    "email": "john@gmail.com",
+    "password": "123456"
+}
+
+###
+POST http://localhost:5001/login
+Content-Type: application/json
+
+{
+    "email": "alifan@gmail.com",
+    "password": "123456"
+}
+
+###
+# Cek Session
+GET http://localhost:5001/me
+
+###
+# Logout
+DELETE http://localhost:5001/logout
+
+=======================================================================
+###
+# Get All Categories
+GET http://localhost:5001/categories
+
+###
+# Post data category
+POST http://localhost:5001/categories
+Content-Type: application/json
+
+{
+    "name": "Places",
+    "image": "-",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+}
+
+###
+# Post data category
+POST http://localhost:5001/categories
+Content-Type: application/json
+
+{
+    "name": "Taste",
+    "image": "-",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+}
+
+###
+# Post data category
+POST http://localhost:5001/categories
+Content-Type: application/json
+
+{
+    "name": "Cultures",
+    "image": "-",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+}
+
+###
+# Get Single Categories
+GET http://localhost:5001/categories/1ae468af-de76-4150-b2e9-f22eb2719efe
+
+###
+# Get Single Categories
+GET http://localhost:5001/categories/5ad1404a-8082-468d-a456-69deae9ae06d
+
+###
+# Post data category
+PATCH http://localhost:5001/categories/5ad1404a-8082-468d-a456-69deae9ae06d
+Content-Type: application/json
+
+{
+    "name": "Places Updated",
+    "image": "-",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+}
+
+###
+# Post data category
+PATCH http://localhost:5001/categories/1ae468af-de76-4150-b2e9-f22eb2719efe
+Content-Type: application/json
+
+{
+    "name": "Cultures Updated",
+    "image": "-",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+}
