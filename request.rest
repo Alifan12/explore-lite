@@ -127,3 +127,6 @@ Content-Type: application/json
     "image": "-",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
 }
+
+###
+DELETE http://localhost:5001/categories/332dfe65-5430-4e10-85fc-35bad0219976

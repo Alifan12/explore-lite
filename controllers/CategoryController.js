@@ -113,6 +113,31 @@ export const updateCategory = async(req, res) => {
     }
 }
 
-export const deleteCategory = (req, res) => {
-
+export const deleteCategory = async(req, res) => {
+try {
+        const category = await Category.findOne({
+            where:{
+                uuid: req.params.id
+            }
+        });
+        if(!category) return res.status(404).json({msg: "Data tidak ditemukan"});
+        const { name, image, description } = req.body;
+        if(req.role === "admin") {
+            await Category.destroy({
+                where:{
+                    id: category.id
+                }
+            })
+        } else {
+            if(req.userId !== category.id) return res.status(403).json({msg: "Akses terlarang"});
+            await Category.destroy({
+                where: {
+                    [Op.and]:[{id: category.id}, {userId: req.userId}]
+                },
+            })
+        }
+        res.status(200).json({msg: "Category deleted successfully!"});
+    } catch (error) {
+        res.status(500).json({msg: error.message});
+    }
 }
